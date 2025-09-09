@@ -122,48 +122,41 @@
 // ---------------------------------Bind----------------------------------
 // Syntax:- functionName.bind(thisArg, arg1, arg2, ...);
 
-function bin(city, country) {
-    console.log("Hello " + this.name + " from" + city + country);
-};
-let bindFun = {name : "flipkart"};
-let x = bin.bind(bindFun," ajmer"," india");
-x();
+// function bin(city, country) {
+//     console.log("Hello " + this.name + " from" + city + country);
+// };
+// let bindFun = {name : "flipkart"};
+// let x = bin.bind(bindFun," ajmer"," india");
+// x();
 
 
 
 
 
 
-// Simple Bind
-const obj = {
-    name : "Khan",
+// // Simple Bind
+// const obj = {
+//     name : "Khan",
 
-    gun : function () {
-        console.log("Hello " + this.name);
-    }
-};
-let newBin = obj.gun.bind(obj);
-newBin();
-
-
+//     gun : function () {
+//         console.log("Hello " + this.name);
+//     }
+// };
+// let newBin = obj.gun.bind(obj);
+// newBin();
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+// Bind with Arguments
+// function gggggg(a,b,c) {
+//     console.log(`${a}, my name is ${this.name}, and i am ${b} years old`);
+// };
+// let user = {name : "Ayan"};
+// let x = gggggg.bind(user,"hi",22);
+// x();
 
 
 
@@ -174,6 +167,17 @@ newBin();
 
 
 
+// // Bind for Reuse..
+// let bindObj = { 
+//     name : "Ayan",
+
+//     bindFund : function () {
+//         return this.name;
+//     }
+// };
+
+// let bindRes = bindObj.bindFund.bind(bindObj);
+// console.log(bindRes());
 
 
 
@@ -181,6 +185,21 @@ newBin();
 
 
 
+
+
+
+
+
+
+
+
+
+// rest
+
+function sum(a,b,...c) {
+    
+
+}
 
 
 
