@@ -248,8 +248,8 @@
 
 
 // ------------------------------some()--------------------------------
-Definition:
-// some() ek array method hai jo check karta hai ki kya array me at least ek element condition ko satisfy karta hai.
+// Definition:
+// some() ek array method hai jo check karta hai ki kya array me at least ek (1) element condition ko satisfy karta hai.
 // ➡️ Agar condition satisfy hoti hai → true return karta hai.
 // ➡️ Agar nahi hoti → false.
 
@@ -260,6 +260,107 @@ Definition:
 
 
 
+// let numbers = [1,3,3,9,2];
+// let res = numbers.some(sm => sm % 2 === 0);
+// console.log(res);
+
+
+
+
+
+
+// let users = [
+//     {name : "owaish", age : 18},
+//     {name : "azan", age : 20},
+//     {name : "faizan", age : 22},
+// ];
+// let usersRes = users.some(som => som.age >= 22)
+// console.log(usersRes);
+
+
+
+
+
+
+
+
+
+
+
+// ----------------------------every()--------------------------------
+// Definition:
+// every() ek array method hai jo check karta hai ki kya array ke saare elements condition ko satisfy karte hain.
+// ➡️ Agar sabhi elements condition pass karte hain → true.
+// ➡️ Agar ek bhi fail kare → false.
+
+
+
+
+// let arr = [1,22,3,4,5];
+// let arrRes = arr.every(eve => eve > 2);
+// console.log(arrRes);
+
+
+
+
+// let arr = [0,2,4,6,16,1];
+// let newArr = arr.every(ev => ev % 2 === 0);
+// console.log(newArr);
+
+
+
+
+
+
+
+// -----------------------------------sort()-----------------------------------------
+// ✅ Key Points:
+// Default sorting string ke hisaab se hoti hai.
+// Numbers ko sahi sort karne ke liye compare function zaroori hai.
+// sort() original array ko modify karta hai.
+// Performance → O(n log n) (efficient for most cases).
+
+
+
+
+// Definition:
+// sort() ek array method hai jo array ke elements ko lexicographical (dictionary order / string ke hisaab se) sort karta hai.
+// ➡️ Default me numbers bhi string banakar sort karta hai.
+// ➡️ Original array ko modify karta hai (in-place sorting).
+
+
+
+
+
+// let sortt = [1,2,3,5,6,4,8,9];
+// sortt.sort();
+// console.log(sortt);
+
+
+
+
+// let fruits = ["banana", "apple", "kaju", "chana"];
+// fruits.sort();
+// console.log(fruits);
+
+
+
+
+// let numbers = [1,5,77,8,4,6,9];
+// numbers.sort((a,b) => a-b);
+// console.log(numbers);
+
+
+
+
+
+// let users = [
+//     {name : "rehan", age : 20},
+//     {name : "farhan", age : 18},
+//     {name : "sehjad", age : 25}
+// ];
+// let usersRes = users.sort((a,b) => a.age - b.age);
+// console.log(usersRes);
 
 
 
@@ -273,6 +374,28 @@ Definition:
 
 
 
+// -----------------------------------includes()-----------------------------------------
+// ✅ Key Points:
+// includes() hamesha true/false return karta hai.
+// Case-sensitive hota hai (capital/lower letter matter karta hai).
+// includes() NaN ko detect kar leta hai, jabki indexOf() nahi kar pata.
+// Original array ko change nahi karta.
+// 🔥 Interview me common questions:
+// includes() aur indexOf() me kya difference hai?
+// Kya includes() case-sensitive hota hai?
+// Kya includes() NaN ko detect kar sakta hai?
+
+
+
+
+
+
+// let fruits = ["banana","apple","mango"];
+// console.log(fruits.includes("mango"));  // true
+
+
+// let fruits = ["banana","apple","mango"];
+// console.log(fruits.includes("kaaju"));  // false
 
 
 
@@ -285,6 +408,30 @@ Definition:
 
 
 
+// -----------------------------------concat()-----------------------------------------
+// Definition:
+// concat() ek array method hai jo do ya zyada arrays (ya values) ko mila kar ek naya array return karta hai.
+// ➡️ Original array ko modify nahi karta.
+
+
+
+
+// let arr = [1,2,3];
+// let arr2 = [4,5,6];
+// let res = arr.concat(arr2);
+// console.log(res);
+
+
+
+
+
+
+
+// let arr = [1,2,3];
+// let arr2 = [4,[5,6,[7,8]]];
+
+// let res = arr.concat(arr2);
+// console.log(res);
 
 
 
