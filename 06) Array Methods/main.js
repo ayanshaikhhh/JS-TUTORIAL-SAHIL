@@ -554,8 +554,16 @@
 
 
 
+// -----------------------------------flat()-----------------------------------------
+// Definition:
+// flat() ek array method hai jo nested (multi-dimensional) arrays ko flatten (ek level tak ya specified depth tak) kar deta hai.
+// ➡️ New array return karta hai.
+// ➡️ Original array modify nahi hota.
 
+// syntax: array.flat(depth);
 
+// depth → kitne level tak flatten karna hai (default = 1).
+// Agar Infinity pass karo to array ko completely flatten kar dega.
 
 
 
