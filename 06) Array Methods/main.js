@@ -443,6 +443,148 @@
 
 
 
+// -----------------------------------slice()-----------------------------------------
+// ✅ Key Points:
+// slice() hamesha new array return karta hai.
+// Original array unchanged rehta hai.
+// Negative index allowed hai (last se count hota hai).
+// Shallow copy karta hai (objects/arrays reference ke sath copy hote hain).
+
+// Definition:
+// slice() ek array method hai jo array ke ek portion (part) ko copy karke ek naya array return karta hai.
+// ➡️ Original array ko modify nahi karta.
+
+// Syntax:- array.slice(start, end);
+
+
+
+
+// let arr = [1,2,3,4,5,6];
+// let arrRes = arr.slice(2,5)  // 345
+// console.log(arrRes);
+
+
+
+
+// let arr = ["a","b","c"];
+// console.log(arr.slice(1));
+
+
+
+
+// let arr = [1,2,3,4,5];
+// console.log(arr.slice(-2));
+
+
+
+
+// let arr = [1,2,3,4,5,6];
+// console.log(arr.slice(1,-1));  // 2345
+
+
+
+
+// let arr = [100,200,300,400];
+// let arrRes = arr.slice();
+// console.log(arrRes);
+
+
+
+
+
+// // Shallow copy case
+// let arr = [
+//     {x : 1},
+//     {x : 2}
+// ];
+// let arrCopy = arr.slice();
+// arrCopy[0].x = 99;
+// console.log(arrCopy);
+// console.log(arr);
+
+
+
+
+
+
+
+
+// -----------------------------------splice()-----------------------------------------
+// Definition:
+// splice() ek array method hai jo array me se elements ko add, remove ya replace karne ke liye use hota hai.
+// ➡️ Ye original array ko modify karta hai (mutable).
+// ➡️ Jo elements remove hote hain unko ek new array return karta hai.
+
+// syntax: array.splice(start, deleteCount, item1, item2, ...);
+
+// ✅ Key Points:
+// splice() original array ko change karta hai (mutable).
+// Delete, add aur replace ek hi method se kar sakte ho.
+// Jo elements remove hote hain wo ek naye array me return hote hain.
+// Negative index allowed hai.
+
+
+
+
+// let numbers = [10,20,30,40,50];
+// numbers.splice(1,2);
+// console.log(numbers);
+
+
+
+
+
+// let fruits = ["apple","banana","mango"];
+// fruits.splice(1,0,"kajuu");  // apple,kaaju,banana,mango
+// console.log(fruits);
+
+
+
+
+
+// let arr = [1,2,3,4,5];
+// arr.splice(1,2,99,100);  // 1,99,100,4,5
+// console.log(arr);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
