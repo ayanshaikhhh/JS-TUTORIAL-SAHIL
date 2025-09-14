@@ -39,6 +39,8 @@
 
 
 
+
+// map function with higher order function & call back function
 // let numbers = [1,2,3,4,5,6];
 // let res = numbers.map((m) => {
 //     return m * 2;
