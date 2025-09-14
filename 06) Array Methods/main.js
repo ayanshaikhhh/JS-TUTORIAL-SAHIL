@@ -582,6 +582,16 @@
 
 
 
+// const num = [3,1,4,55,-1,0,10];
+// num.sort((a,b) =>  a-b);
+// console.log(num); // -1,0,1,3,4,10,55
+
+
+
+
+// const name = ['sahil','tofik','ayaan','kanhaiya']
+// name.sort();
+// console.log(name);  // ayaan, 
 
 
 
@@ -590,13 +600,32 @@
 
 
 
+const users = [{
+  id:1,
+  name:'sahil'
+},
+{
+  id:2,
+  name:'tofik'
+},
+{
+  id:3,
+  name:'ayan'
+},
+{
+  id:4,
+  name:'kanhaiya'
+}];
+
+let usersRes = users.sort((a,b) => a.name.localeCompare (b.name));
+console.log(usersRes);
 
 
 
 
-
-
-
+// const numsAsString = ['40', '100', '1', '5', '25', '10'];
+// let res = numsAsString.sort((a,b) => a-b);
+// console.log(res);
 
 
 
