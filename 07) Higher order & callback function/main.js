@@ -104,7 +104,54 @@
 
 
 
+// ------------------------------------------------------------------------------------------------------------
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ------------------map-----------------------
+// let arr = [1,2,3,4,5];
+// let  arrRes = arr.map((num) => {
+//     return num * 2;
+// });
+// console.log(arrRes);
+
+
+
+
+
+
+
+// ------------------filter-----------------------
+// let arr = [1,2,3,4,5];
+// let arrRes = arr.filter((greater) => {
+//     return greater % 2 === 0;
+//     // return greater < 10;
+// });
+// console.log(arrRes);
+
+
+
+
+
+
+
+// ------------------reduce-----------------------
+// let arr = [1,2,3,4,5,6];
+// let arrRes = arr.reduce((ele,num) => {
+//     return ele + num;
+// });
+// console.log(arrRes);
 
 
