@@ -66,6 +66,42 @@
 
 
 
+// function tofik(name, callback) {
+//     console.log("hello" + name);
+//     callback();
+// };
+// function coding() {
+//     console.log("js coding")
+// };
+// tofik("tofik", coding);
+
+
+
+
+
+
+
+// function my(a,b) {
+//     console.log(a);
+//     b();
+// };
+// function name() {
+//     console.log("nameeeee");
+// }
+// my("my", name);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
