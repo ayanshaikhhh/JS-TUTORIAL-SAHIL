@@ -1,7 +1,6 @@
 // ----------------------------------------SetTimeout-----------------------
 
 
-
 // console.log("helooo");
 // setTimeout(() => {
 //     console.log("runs after 2 seconds")
@@ -20,7 +19,7 @@
 // }, 3000);
 
 
-
+///////////////////////////// clearTimeout(id)
 
 
 
@@ -29,14 +28,61 @@
 //  -----------------------------------SetInterval----------------------------------
 
 // let count = 1;
-
 // let interValid = setInterval(() => {
 //     console.log(count);
 //     count++;
-
 //     if(count > 5) {
 //         clearInterval(interValid);
 //     }
 // }, 1000);
 
 
+
+
+
+
+
+
+
+// Example: Ek clock banane ke liye setInterval use hota hai:
+// setInterval(() => {
+//     let now = new Date();
+//     console.log(now.toLocaleTimeString())
+// }, 1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // ---------------------------------------Difference----------------------------------
+// | Feature          | `setTimeout()`                     | `setInterval()`            |
+// | ---------------- | ---------------------------------- | -------------------------- |
+// | Execution        | Sirf ek baar                       | Repeat hota hai            |
+// | Stop karna       | `clearTimeout(id)`                 | `clearInterval(id)`        |
+// | Common use cases | Notifications delay, splash screen | Timer, clock, auto-refresh |
