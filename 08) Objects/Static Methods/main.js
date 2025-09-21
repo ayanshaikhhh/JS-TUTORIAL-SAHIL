@@ -657,6 +657,158 @@
 
 
 
+// const users = [
+//   {
+//     id: 1,
+//     firstName: "John",
+//     lastName: "Doe",
+//     email: "john.doe@example.com",
+//     age: 28,
+//     isActive: true
+//   },
+//   {
+//     id: 2,
+//     firstName: "Jane",
+//     lastName: "Smith",
+//     email: "jane.smith@example.com",
+//     age: 34,
+//     isActive: false
+//   },
+//   {
+//     id: 3,
+//     firstName: "Alice",
+//     lastName: "Johnson",
+//     email: "alice.johnson@example.com",
+//     age: 25,
+//     isActive: true
+//   },
+//   {
+//     id: 4,
+//     firstName: "Bob",
+//     lastName: "Williams",
+//     email: "bob.williams@example.com",
+//     age: 41,
+//     isActive: false
+//   }
+// ];
+
+// // console.log(users);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ----------------------------------------------Meeting 20sep,2025-------------------------------------------
+// // let fullNames = users.map(user => `${user.firstName} ${user.lastName}`);
+// // console.log(fullNames);
+
+
+
+
+// let usersRes = users.filter(user => user.isActive);
+// console.log(usersRes)
+
+
+
+
+
+
+// const numbers = [1,5,7,66,8,6];
+
+// let numRes = numbers.reduce((a, b) => a + b );
+
+// console.log(numRes)
+
+
+
+
+
+// let obj = {
+//     id: 4,
+//     firstName: "Bob",
+//     lastName: "Williams",
+//     email: "bob.williams@example.com",
+//     age: 41,
+//     isActive: false
+//   };
+
+
+// console.log(Object.keys(obj).length);
+
+
+
+
+
+
+
+// ----------------------------------------------Object.groupBy()-------------------------------------------
+// // 🔹 Important Points:
+// Object.groupBy() हमेशा object return करता है (Map नहीं)।
+// अगर key string/number नहीं है, तो JS उसे string में convert कर देता है।
+// यह immutable है → original array को modify नहीं करता।
+
+
+
+
+// // 🔹 Example 1: Numbers को even और odd में group करना
+// const numbers = [1,2,3,4,5,6];
+// let numRes = Object.groupBy(numbers, num => (num % 2 === 0 ? "even" : "odd"));
+// console.log(numRes);
+
+
+
+
+
+// 🔹 Example 2: Strings को length के हिसाब से group करना
+// const words = ["apple", "bat", "car", "banana", "dog"];
+// let worRes = Object.groupBy(words, word => word.length);
+// console.log(worRes);
+
+
+
+
+
+// // 🔹 Example 3: Objects को property के हिसाब से group करना
+// const users = [
+//   {name : "Ayan", role : "admin"},
+//   {name : "sahil", role : "user"},
+//   {name : "Ayan", role : "admin"},
+//   {name : "pathan", role : "user"},
+// ];
+
+// let useRes = Object.groupBy(users, user => user.role);
+// console.log(useRes);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
