@@ -590,6 +590,142 @@
 
 
 // ---------------------------------------------🔹 8. Modules (import/export)-----------------------------------------------
+// 🔹 8. Modules (import/export)
+// Code को अलग-अलग files में बाँट सकते हो।
+
+
+
+
+// // file: math.js
+// export function add(a, b) {
+//   return a + b;
+// }
+
+// // file: app.js
+// import { add } from './math.js';
+// console.log(add(2, 3));
+
+
+
+
+
+
+// // Export variables and functions.....
+// export const PI = 3.14;
+
+// export function add(a,b) {
+//     return a + b;
+// }
+
+// export function multiply(a,b) {
+//     return a * b;
+// }
+
+
+
+
+
+
+
+
+
+
+// --------------------------------------------🔹 9. Promises (Async Handling)----------------------------------------------
+// Async operations को handle करने का तरीका।...
+
+
+// console.log("pending")
+
+// let promi = new Promise((resolve,reject) => {
+
+//     setTimeout(() => {
+//             let  age = 185;
+//     if(age>18) {
+//         resolve("task done")
+//     }else {
+//         reject("task failed")
+//     }   
+//     }, 3000);
+
+// });
+
+// promi.then(msg => console.log(msg))
+// .catch(err => console.log(err))
+
+// console.log("pass")
+
+
+
+
+
+
+
+
+
+
+// let Prom = new Promise((resolve,reject) => {
+//     let age = 19;
+//     if(age>18) {
+//         resolve("pass")
+//     }else{
+//         reject("failed")
+//     }
+// })
+
+// Prom.then((result) => {
+//     console.log("success : ", result)
+    
+// }).catch((err) => {
+//     console.log("failed : ", err)
+    
+// }).finally(() => {
+//     console.log("kaam khatam ho gaya")
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// -----------------------------------------🔹 10. for...of Loop------------------------------------------
+// Array iteration आसान।.....
+
+// let arr = [10,20,30];
+// for(let num of arr) {
+//     console.log(num)  // values (a,b,c)
+// }
+
+
+
+
+// let arr = [10,20,30];
+// for(let num in arr) {
+//     console.log(num) // indexes (0,1,2)
+// }
+
+
+
+
+
+console.log(x)
+var x = 1;
+
+
+
+
+
+
+
+
 
 
 

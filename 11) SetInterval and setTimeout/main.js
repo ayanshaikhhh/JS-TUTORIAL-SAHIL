@@ -25,7 +25,21 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 //  -----------------------------------SetInterval----------------------------------
+
+
+
+
 
 // let count = 1;
 // let interValid = setInterval(() => {
@@ -86,3 +100,39 @@
 // | Execution        | Sirf ek baar                       | Repeat hota hai            |
 // | Stop karna       | `clearTimeout(id)`                 | `clearInterval(id)`        |
 // | Common use cases | Notifications delay, splash screen | Timer, clock, auto-refresh |
+
+
+
+
+
+
+
+
+
+
+
+
+import {users} from "./data.js"
+
+
+
+// let num = 1;
+
+// let res = setInterval(() => {
+//     console.log(num)
+//     num++
+
+//     if(num > 10) {
+//         clearInterval(res)
+        
+//     }
+    
+// }, 1000);
+
+
+
+
+
+
+
+console.log(users)
