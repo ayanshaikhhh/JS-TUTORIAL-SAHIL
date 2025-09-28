@@ -112,7 +112,6 @@
 
 
 
-import {users} from "./data.js"
 
 
 
@@ -135,4 +134,16 @@ import {users} from "./data.js"
 
 
 
-console.log(users)
+// -----------------------------------------------------------------------------------------------------
+
+// import { users } from "../Practice/new/data.js";
+// console.log(users)
+
+
+
+
+
+
+import * as exam from "../Practice/new/data.js";
+console.log(exam.users)
+console.log(exam.add(5,5));

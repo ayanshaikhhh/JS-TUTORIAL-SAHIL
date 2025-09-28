@@ -32,3 +32,11 @@ export const users = [
     isActive: false
   }
 ];
+
+
+
+
+
+export function add(a,b) {
+  return a+b;
+}
