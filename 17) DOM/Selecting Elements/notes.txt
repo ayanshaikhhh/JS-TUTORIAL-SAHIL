@@ -1,0 +1,105 @@
+JavaScript me DOM (Document Object Model) ke andar elements ko select karne ke liye different methods hote hain. Ye methods aapko HTML elements ko access, modify aur manipulate karne me help karte hain.
+
+
+
+
+🔹 JavaScript Element Selection Methods
+1. getElementById()
+Specific id wale element ko select karta hai.
+Hamesha ek hi element return karega (unique id hoti hai).
+
+let heading = document.getElementById("main-title");
+console.log(heading.innerText);
+
+
+
+
+
+2. getElementsByClassName()
+Kisi class name se elements select karta hai.
+HTMLCollection (array-like object) return karta hai.
+
+let items = document.getElementsByClassName("list-item");
+console.log(items[0].innerText);  // Pehla element
+
+
+
+
+
+
+
+
+
+3. getElementsByTagName()
+Tag name ke basis par select karta hai (e.g. div, p, h1).
+Ye bhi HTMLCollection return karta hai.
+
+let paragraphs = document.getElementsByTagName("p");
+console.log(paragraphs.length);   // Kitne <p> tags hai
+
+
+
+
+
+
+
+4. querySelector()
+CSS selector ka use karke first matching element select karta hai.
+Flexible hai, id (#id), class (.class), ya tag name (tag) sab select kar sakte ho.
+
+let firstItem = document.querySelector(".list-item");
+console.log(firstItem.innerText);
+
+
+
+
+
+
+
+
+5. querySelectorAll()
+CSS selector ka use karke sabhi matching elements select karta hai.
+NodeList return karta hai (isme forEach loop use kar sakte ho).
+
+let allItems = document.querySelectorAll(".list-item");
+allItems.forEach(item => console.log(item.innerText));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+| Method                   | Return Type    | Example                                    |
+| ------------------------ | -------------- | ------------------------------------------ |
+| `getElementById`         | Single Element | `document.getElementById("id")`            |
+| `getElementsByClassName` | HTMLCollection | `document.getElementsByClassName("class")` |
+| `getElementsByTagName`   | HTMLCollection | `document.getElementsByTagName("p")`       |
+| `querySelector`          | First Match    | `document.querySelector(".class")`         |
+| `querySelectorAll`       | NodeList       | `document.querySelectorAll("div")`         |
+
+
+
+
+
+
+
+
+
+
+
+👉 Pro tip:
+Agar ek hi element select karna ho → getElementById ya querySelector use karo.
+Agar multiple elements select karne ho → getElementsByClassName, getElementsByTagName ya querySelectorAll use karo.
