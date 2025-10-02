@@ -1,0 +1,107 @@
+DOM (Document Object Model) me getAttribute() aur setAttribute() dono HTML element ke attributes ko access aur modify karne ke liye use hote hain.
+
+
+
+
+
+🔹 getAttribute()
+Kisi element ke attribute ki value nikalne ke liye use hota hai.
+Ye hamesha string return karta hai.
+
+
+
+
+
+
+Syntax:
+element.getAttribute("attributeName");
+
+
+
+
+
+
+
+
+Example:
+<a id="link1" href="https://google.com" target="_blank">Google</a>
+
+<script>
+let link = document.getElementById("link1");
+
+// href attribute ki value lena
+console.log(link.getAttribute("href")); // "https://google.com"
+
+// target attribute ki value lena
+console.log(link.getAttribute("target")); // "_blank"
+</script>
+
+
+
+
+
+
+
+
+
+
+🔹 setAttribute()
+Kisi element ke attribute ko add ya update karne ke liye use hota hai.
+
+
+Syntax:
+element.setAttribute("attributeName", "value");
+
+
+
+
+
+
+<img id="logo" src="old.png" alt="Old Logo">
+
+<script>
+let img = document.getElementById("logo");
+
+// src attribute update karna
+img.setAttribute("src", "new.png");
+
+// naya attribute add karna
+img.setAttribute("title", "Website Logo");
+</script>
+
+
+
+
+
+
+
+
+🔹 Difference between Direct Property Access & getAttribute() / setAttribute()
+<input id="myInput" type="text" value="Hello">
+<script>
+let input = document.getElementById("myInput");
+
+// property (live value milegi)
+console.log(input.value);  // Hello
+
+// attribute (HTML me jo likha hai wahi milega)
+console.log(input.getAttribute("value")); // Hello
+
+// Agar JS se input.value change karoge to wo property change hogi,
+// par attribute me nahi dikhai degi.
+input.value = "Hi";
+console.log(input.value);              // Hi
+console.log(input.getAttribute("value")); // Hello (abhi bhi old)
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
