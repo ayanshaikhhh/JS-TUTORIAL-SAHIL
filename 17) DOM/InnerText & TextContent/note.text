@@ -1,0 +1,103 @@
+JavaScript me elements ke andar text ko access karne aur change karne ke liye innerText, textContent aur innerHTML use hote hain. Ye tino thoda alag-alag tarike se kaam karte hain.
+
+
+
+
+
+🔹 1. innerText
+Ye sirf visible text (jo screen pe dikh raha ho) return karta hai.
+CSS ke hisaab se jo text hide hai (display: none, visibility: hidden, etc.) usko ignore karega.
+Browser ko rendering ke baad jo dikh raha hai wahi return hota hai.
+
+👉 Example:
+<div id="box">
+  Hello <span style="display:none">World</span>
+</div>
+
+<script>
+  let el = document.getElementById("box");
+  console.log(el.innerText); // Output: "Hello"
+</script>
+
+
+
+
+
+
+
+
+
+🔹 2. textContent
+Ye pure text ko return karega, chahe wo hidden ho ya visible.
+CSS style (hide/show) ka koi effect nahi hota.
+Ye fast hota hai kyunki browser ko rendering check nahi karni padti.
+
+👉 Example:
+<div id="box">
+  Hello <span style="display:none">World</span>
+</div>
+
+<script>
+  let el = document.getElementById("box");
+  console.log(el.textContent); // Output: "Hello World"
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+🔹 3. innerHTML
+Ye element ke andar ka HTML code (tags + text) return karega.
+Agar aap text ke saath saath uske andar ka HTML structure chahte ho to ye use hota hai.
+Isse aap HTML insert bhi kar sakte ho.
+
+👉 Example:
+<div id="box">
+  Hello <span>World</span>
+</div>
+
+<script>
+  let el = document.getElementById("box");
+  console.log(el.innerHTML); // Output: "Hello <span>World</span>"
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+🔑 Summary Table:
+| Property        | Kya Return karta hai?        | Hidden text show karega? | HTML tags show karega? |
+| --------------- | ---------------------------- | ------------------------ | ---------------------- |
+| **innerText**   | Sirf visible text            | ❌ Ignore karega          | ❌ Nahi                 |
+| **textContent** | Pure text (visible + hidden) | ✅ Show karega            | ❌ Nahi                 |
+| **innerHTML**   | Text + HTML code             | ✅ Show karega            | ✅ Yes (tags ke saath)  |
+
+
+
+
+
+
+
+
+
+
+👉 Matlab:
+Sirf visible text chahiye → innerText
+Sab text (hidden bhi) chahiye → textContent
+HTML structure chahiye → innerHTML
