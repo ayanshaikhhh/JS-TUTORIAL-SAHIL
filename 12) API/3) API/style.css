@@ -1,0 +1,32 @@
+#userTable{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+tr,th,td{
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+
+
+thead{
+    background-color: rgb(70, 70, 70);
+    color: white;
+}
+
+
+
+#searchInput{
+    width: 100%;
+    padding: 20px;
+    font-size: 22px;
+    box-sizing: border-box;
+}
+
+
+
+

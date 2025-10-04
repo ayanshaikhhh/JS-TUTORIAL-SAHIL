@@ -14,5 +14,45 @@
 
 
 
-let copy = document.querySelector("body > p");
-console.log(copy)
+// let copy = document.querySelector("body > p");
+// console.log(copy)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
