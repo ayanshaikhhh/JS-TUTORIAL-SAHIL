@@ -1,3 +1,5 @@
+
+
 #userTable{
     width: 100%;
     border-collapse: collapse;
@@ -28,5 +30,19 @@ thead{
 }
 
 
+#loader{
+    background: white url('img/Loading.gif') no-repeat center center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
 
 
+.fontSize{
+    font-size: 30px;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 50px;
+    text-align: left;    
+}

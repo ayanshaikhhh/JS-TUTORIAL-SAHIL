@@ -1,0 +1,49 @@
+🔹 Definition:
+DocumentFragment ek lightweight, invisible container hota hai jisme aap temporarily DOM elements ko store kar sakte ho, bina page me reflow/repaint hone ke.
+Phir aap us fragment ko ek baar me DOM me insert karte ho — ye performance improve karta hai.
+
+
+
+
+
+
+
+
+
+🔹 Why Use DocumentFragment?
+✅ Performance: Har element ko DOM me directly add karne se har baar re-render hota hai.
+Fragment me sab elements ko pehle store karke ek hi baar me insert karne se speed badhti hai.
+✅ Temporary container: Ye page me visible nahi hota, sirf temporary memory me hota hai.
+✅ Clean & efficient: DOM updates fast ho jate hain aur unnecessary reflows avoid hote hain.
+
+
+
+
+
+
+
+
+
+
+
+
+
+| Feature         | Description                         |
+| --------------- | ----------------------------------- |
+| Type            | Lightweight DOM container           |
+| Visible in DOM? | ❌ No                                |
+| Purpose         | Efficient DOM manipulation          |
+| Method          | `document.createDocumentFragment()` |
+| Common Use      | Add multiple elements at once       |
+
+
+
+
+
+
+
+
+
+
+
+DocumentFragment ek invisible box hai jisme hum elements temporarily rakhte hain, fir unhe ek saath DOM me add karte hain — taaki performance better ho.
