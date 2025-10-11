@@ -1,0 +1,46 @@
+Mouse Events in JavaScript (माउस इवेंट्स)
+Mouse events वो events होते हैं जो तब trigger होते हैं जब user mouse का इस्तेमाल करता है — जैसे click करना, move करना, hover करना, double click करना आदि।
+
+
+
+
+
+
+
+
+
+
+
+
+🖱️ Common Mouse Events List with Explanation:
+
+| Event           | Description (English + Hindi)                                           | Example                                                                                                      |
+| --------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| **click**       | जब user किसी element पर left mouse button से क्लिक करता है।             | `element.addEventListener("click", function() {...})`                                                        |
+| **dblclick**    | जब user किसी element पर **double-click** करता है।                       | `element.addEventListener("dblclick", function() {...})`                                                     |
+| **mousedown**   | जब user mouse button को **press करता है (रिलीज़ नहीं करता)**।           | `element.addEventListener("mousedown", function() {...})`                                                    |
+| **mouseup**     | जब user mouse button को **release करता है**।                            | `element.addEventListener("mouseup", function() {...})`                                                      |
+| **mousemove**   | जब user mouse को element पर **move करता रहता है**।                      | `element.addEventListener("mousemove", function() {...})`                                                    |
+| **mouseenter**  | जब mouse किसी element में **enter करता है**। (No bubbling)              | `element.addEventListener("mouseenter", function() {...})`                                                   |
+| **mouseleave**  | जब mouse किसी element से **bahar chala jata hai**। (No bubbling)        | `element.addEventListener("mouseleave", function() {...})`                                                   |
+| **mouseover**   | जब mouse किसी element ya uske child element par **aata hai**। (Bubbles) | `element.addEventListener("mouseover", function() {...})`                                                    |
+| **mouseout**    | जब mouse kisi element ya uske child se **bahar jata hai**। (Bubbles)    | `element.addEventListener("mouseout", function() {...})`                                                     |
+| **contextmenu** | जब user **right-click** करता है (context menu open hone se pehle)।      | `element.addEventListener("contextmenu", function(e){ e.preventDefault(); alert("Right click disabled"); })` |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Difference between mouseover and mouseenter:
+mouseover: Trigger होता है जब element या उसके child पर mouse आता है।
+mouseenter: Trigger होता है sirf us element par, उसके child पर नहीं।
