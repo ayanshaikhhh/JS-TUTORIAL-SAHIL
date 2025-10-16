@@ -7,24 +7,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<div id="loader"></div>
-    <input type="text" id="searchInput" placeholder="Search by name..." oninput="filterTable()">
-    
-    <table id="userTable">
+    <div class="box">
+        <input type="text" id="search" placeholder="Search user name...">
+        <button id="sort-btn">Sort: A - Z</button>
+    </div>
+
+    <table>
         <thead>
             <tr>
-                <th>id</th>
-                <th>name</th>
-                <th>username</th>
-                <th>email</th>
-                <th>address</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>City</th>
             </tr>
         </thead>
-        <tbody></tbody>
+        <tbody id="table-body"></tbody>
     </table>
+
+    <div id="loader"></div>
+
     <script src="main.js"></script>
 </body>
 </html>
-
-
-
