@@ -100,11 +100,12 @@ const getTableElement = (data) => {
 
 // ----------------addEventListener-------------------
 const getTh = (columnName) => {
-  const th = document.createElement("th");
+  let  th = document.createElement("th");
   th.innerHTML = columnName;
   th.style.cursor = "pointer";
   th.addEventListener("click", () => {
-    sortTableByColumn(columnName);
+    console.log(`You clicked on ${columnName}`);
+    // sortTableByColumn(columnName);
   })
   return th;
 };
@@ -123,10 +124,6 @@ const getTDElement = (value) => {
 };
 
 
-// th.addEventListener("click", thSort);
-thSort = () => { 
-  sortTableByColumn(columnName);
-}
 window.addEventListener("load", onLoad);
 
 
@@ -139,64 +136,65 @@ window.addEventListener("load", onLoad);
 
 
 
+// -----------------------------------------------------------------
 
 
 
-let currentSort = { column: null, state: "none" };
+// let currentSort = { column: null, state: "none" };
 
-let originalRows = []; // Original order store karne ke liye
+// let originalRows = []; // Original order store karne ke liye
 
-function sortTableByColumn(column) {
-  const table = document.querySelector("table");
-  const tbody = table.querySelector("tbody");
-  let rows = Array.from(tbody.querySelectorAll("tr"));
+// function sortTableByColumn(column) {
+//   const table = document.querySelector("table");
+//   const tbody = table.querySelector("tbody");
+//   let rows = Array.from(tbody.querySelectorAll("tr"));
 
-  // Pehli baar me original order store kar lo
-  if (originalRows.length === 0) {
-    originalRows = rows.slice();
-  }
+//   // Pehli baar me original order store kar lo
+//   if (originalRows.length === 0) {
+//     originalRows = rows.slice();
+//   }
 
-  const columns = ["id", "name", "email", "phone", "username", "website", "city"];
-  const colIndex = columns.indexOf(column);
+//   const columns = ["id", "name", "email", "phone", "username", "website", "city"];
+//   const colIndex = columns.indexOf(column);
 
-  // 3-step toggle: none → asc → desc → none
-  if (currentSort.column === column) {
-    if (currentSort.state === "none") currentSort.state = "asc";
-    else if (currentSort.state === "asc") currentSort.state = "desc";
-    else if (currentSort.state === "desc") currentSort.state = "none";
-  } else {
-    currentSort.column = column;
-    currentSort.state = "asc";
-  }
-
-
+//   // 3-step toggle: none → asc → desc → none
+//   if (currentSort.column === column) {
+//     if (currentSort.state === "none") currentSort.state = "asc";
+//     else if (currentSort.state === "asc") currentSort.state = "desc";
+//     else if (currentSort.state === "desc") currentSort.state = "none";
+//   } else {
+//     currentSort.column = column;
+//     currentSort.state = "asc";
+//   }
 
 
-  // Sorting logic
-  if (currentSort.state === "asc" || currentSort.state === "desc") {
-    rows.sort((a, b) => {
-      let aText = a.children[colIndex].textContent.trim().toLowerCase();
-      let bText = b.children[colIndex].textContent.trim().toLowerCase();
 
-      // Agar number hai to number me convert karo
-      if (!isNaN(aText) && !isNaN(bText)) {
-        aText = Number(aText);
-        bText = Number(bText);
-      }
 
-      if (aText < bText) return currentSort.state === "asc" ? -1 : 1;
-      if (aText > bText) return currentSort.state === "asc" ? 1 : -1;
-      return 0;
-    });
-  } else if (currentSort.state === "none") {
-    // Normal state: original order restore karo
-    rows = originalRows.slice();
-  }
+//   // Sorting logic
+//   if (currentSort.state === "asc" || currentSort.state === "desc") {
+//     rows.sort((a, b) => {
+//       let aText = a.children[colIndex].textContent.trim().toLowerCase();
+//       let bText = b.children[colIndex].textContent.trim().toLowerCase();
 
-  // Purana tbody clear karke new rows lagao
-  tbody.innerHTML = "";
-  rows.forEach(row => tbody.appendChild(row));
-}
+//       // Agar number hai to number me convert karo
+//       if (!isNaN(aText) && !isNaN(bText)) {
+//         aText = Number(aText);
+//         bText = Number(bText);
+//       }
+
+//       if (aText < bText) return currentSort.state === "asc" ? -1 : 1;
+//       if (aText > bText) return currentSort.state === "asc" ? 1 : -1;
+//       return 0;
+//     });
+//   } else if (currentSort.state === "none") {
+//     // Normal state: original order restore karo
+//     rows = originalRows.slice();
+//   }
+
+//   // Purana tbody clear karke new rows lagao
+//   tbody.innerHTML = "";
+//   rows.forEach(row => tbody.appendChild(row));
+// }
 
 
 
