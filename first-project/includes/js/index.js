@@ -1,39 +1,23 @@
+let usersData = [];
+let lastSortedColumn = null;
+
 const onLoad = async () => {
-    document.getElementById("loader").style.display = "block"; // loader show
+  document.getElementById("loader").style.display = "block"; // loader show
   const users = await getUsers();
+  usersData = users;
   renderTable(users);
   document.getElementById("loader").style.display = "none"; // loader hide
   let input = document.createElement("input");
   input.setAttribute("type", "text");
-  input.setAttribute("id", "searchBox");
+  let searchInput = input.setAttribute("id", "searchBox");
   input.setAttribute("placeholder", "Search by name...");
   document.body.insertBefore(input, document.getElementById("users-section"));
-  input.addEventListener("input", search);
-  return input;
+
+  input.addEventListener("input", (e) => {
+    const q = e.target.value.trim().toLowerCase();
+    renderTable(q? usersData.filter(u => (u.name || '').toLowerCase().includes(q)) : usersData);
+  });
 };
-
-const search =  () => {
-  const input = document.getElementById("searchBox");
-  console.log(input.value);
-  let filter = input.value.toUpperCase();
-  let table = document.querySelector("table");
-  let tr = table.getElementsByTagName("tr");
-  for(let i=1; i<tr.length; i++) { // 0 is header
-    let td = tr[i].getElementsByTagName("td")[1]; // 1 = name column
-    if(td) {
-      let textValue = td.textContent || td.innerHTML;
-      if(textValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
-
-
-
-
 
 
 const getUsers = async () => {
@@ -48,68 +32,121 @@ const getUsers = async () => {
 const renderTable = (data) => {
   const table = getTableElement(data);
   const ele = document.getElementById("users-section");
+  ele.innerHTML = "";       // remove old table
   ele.append(table);
 };
 
 const getTableElement = (data) => {
   const table = document.createElement("table");
-  table.className = "table table-hover";
   const thead = document.createElement("thead");
   const tbody = document.createElement("tbody");
 
-  const columns = ["id", "name", "email", "phone", "username", "website","city" ];
+  const columns = ["id", "name", "email", "username", "website", "phone"];
+  const columns1 = [
+    {
+      id:"id",
+      name: "User Id",
+      key: "id",
+      isSort: true,
+    },
+    {
+      id:'name',
+      name: "User Name",
+      key: "name",
+      isSort: true,
+    },
+    {
+      id:'email',
+      name: "User Email",
+      key: "email",
+      isSort: true,
+    },
+  ];
 
   const thElements = [];
+  // debugger;
 
-  columns.forEach((current) => {
+  columns1.forEach((current) => {
     const th = getTh(current);
     thElements.push(th);
   });
-
   const bodyFragment = document.createDocumentFragment();
+  // debugger;
   data.forEach((current) => {
+    // debugger;
     const tdElements = [];
-
-
-    columns.forEach((col) => {
-      let value = current[col];
-      if(col === "city") {    // add cityyyy
-        value = current.address.city;
-      }
+    columns1.forEach((col) => {
+      // debugger;
+      const { key } = col;
+      const value = current[key];
       const td = getTDElement(value);
       tdElements.push(td);
+      // debugger;
     });
-
-
-
+    // debugger;
     const tr = getRowElement(tdElements);
+    // debugger;
     bodyFragment.append(tr);
+    // debugger;
   });
 
+  // debugger;
   const thRow = getRowElement(thElements);
+  // debugger;
   thead.append(thRow);
-
-  tbody.append(bodyFragment);
-
+  // debugger;
+  table.append(bodyFragment);
+  // debugger;
   table.append(thead);
+  // debugger;
   table.append(tbody);
+  // debugger;
   return table;
 };
 
 
 
-// ----------------addEventListener-------------------
-const getTh = (columnName) => {
-  let  th = document.createElement("th");
-  th.innerHTML = columnName;
-  th.style.cursor = "pointer";
-  th.addEventListener("click", () => {
-    console.log(`You clicked on ${columnName}`);
-    // sortTableByColumn(columnName);
-  })
-  return th;
+const getTh = (column) => {
+  console.log(column);
+  const th = document.createElement("th");
+  th.innerHTML = column.name;
+
+  if (column.isSort) {
+     // icon span
+    const icon = document.createElement("span");
+    icon.className = "sort-icon";
+    icon.style.marginLeft = "8px";
+    icon.style.fontSize = "0.8em";
+
+// set initial icon based on current sort state
+
+
+const setIcon = () => {
+  if(lastSortedColumn?.id === column.id) {
+    const ord =  lastSortedColumn.order;
+    if(ord === "asc") icon.textContent = "▲";
+    else if (ord === "dsc") icon.textContent = "▼";
+    else icon.textContent = "↺";   // reset state
+  } else {
+    icon.textContent = "↕";    // neutral (not sorted)
+  }
 };
 
+
+    setIcon();
+
+    th.appendChild(icon);
+    th.style.cursor = "pointer";
+
+  
+
+    th.onclick = (e) => {
+      sortByColumn(e, column);
+    };
+  }
+
+  return th;
+};
 
 
 const getRowElement = (elements) => {
@@ -123,79 +160,54 @@ const getTDElement = (value) => {
   return td;
 };
 
+const sortByColumn = (e, column) => {
+  let order = "asc";
+  if(lastSortedColumn?.id === column?.id){
+    const lastSortedOrder = lastSortedColumn?.order;
+    if(lastSortedOrder === 'asc'){
+      order = 'dsc';
+    } else if(lastSortedOrder === 'dsc'){
+      order = ''
+    }
+  }
+  // console.log("clicked on", column?.name);
+  const copyOfUsers = [...usersData];
+  const {key} = column;
+  if(order){
+    copyOfUsers.sort((a, b) => {
+      let aValue = a?.[key];
+      let bValue = b?.[key];
+      if(typeof aValue === "string"){
+          aValue= aValue?.toLowerCase()
+      }
+      if(typeof bValue === "string"){
+          bValue= bValue?.toLowerCase()
+      }
+      if (aValue < bValue) return order === "asc" ? -1 : 1;
+      if (aValue > bValue) return order === "asc" ? 1 : -1;
+      return 0;
+    });
+  }
+
+  lastSortedColumn = column;
+  lastSortedColumn.order = order;
+  renderTable(copyOfUsers)
+};
+function sortUsers(order = "asc") {
+  if (!order) {
+    return [...usersData]; // return original order
+  }
+  return [...usersData].sort((a, b) => {
+    const emailA = a?.email?.toLowerCase() || "";
+    const emailB = b?.email?.toLowerCase() || "";
+
+    if (emailA < emailB) return order === "asc" ? -1 : 1;
+    if (emailA > emailB) return order === "asc" ? 1 : -1;
+    return 0;
+  });
+}
 
 window.addEventListener("load", onLoad);
-
-
-
-
-
-
-
-
-
-
-
-// -----------------------------------------------------------------
-
-
-
-// let currentSort = { column: null, state: "none" };
-
-// let originalRows = []; // Original order store karne ke liye
-
-// function sortTableByColumn(column) {
-//   const table = document.querySelector("table");
-//   const tbody = table.querySelector("tbody");
-//   let rows = Array.from(tbody.querySelectorAll("tr"));
-
-//   // Pehli baar me original order store kar lo
-//   if (originalRows.length === 0) {
-//     originalRows = rows.slice();
-//   }
-
-//   const columns = ["id", "name", "email", "phone", "username", "website", "city"];
-//   const colIndex = columns.indexOf(column);
-
-//   // 3-step toggle: none → asc → desc → none
-//   if (currentSort.column === column) {
-//     if (currentSort.state === "none") currentSort.state = "asc";
-//     else if (currentSort.state === "asc") currentSort.state = "desc";
-//     else if (currentSort.state === "desc") currentSort.state = "none";
-//   } else {
-//     currentSort.column = column;
-//     currentSort.state = "asc";
-//   }
-
-
-
-
-//   // Sorting logic
-//   if (currentSort.state === "asc" || currentSort.state === "desc") {
-//     rows.sort((a, b) => {
-//       let aText = a.children[colIndex].textContent.trim().toLowerCase();
-//       let bText = b.children[colIndex].textContent.trim().toLowerCase();
-
-//       // Agar number hai to number me convert karo
-//       if (!isNaN(aText) && !isNaN(bText)) {
-//         aText = Number(aText);
-//         bText = Number(bText);
-//       }
-
-//       if (aText < bText) return currentSort.state === "asc" ? -1 : 1;
-//       if (aText > bText) return currentSort.state === "asc" ? 1 : -1;
-//       return 0;
-//     });
-//   } else if (currentSort.state === "none") {
-//     // Normal state: original order restore karo
-//     rows = originalRows.slice();
-//   }
-
-//   // Purana tbody clear karke new rows lagao
-//   tbody.innerHTML = "";
-//   rows.forEach(row => tbody.appendChild(row));
-// }
-
 
 
 
