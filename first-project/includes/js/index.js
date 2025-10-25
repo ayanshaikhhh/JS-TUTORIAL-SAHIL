@@ -38,6 +38,7 @@ const renderTable = (data) => {
 
 const getTableElement = (data) => {
   const table = document.createElement("table");
+  table.classList.add("table", "table-striped", "table-hover"); // bootstrap classes
   const thead = document.createElement("thead");
   const tbody = document.createElement("tbody");
 
@@ -60,6 +61,24 @@ const getTableElement = (data) => {
       name: "User Email",
       key: "email",
       isSort: true,
+    },
+    {
+      id : 'username',
+      name : 'User Name',
+      key : 'username',
+      isSort: true,
+    },
+    {
+      id : 'website',
+      name : 'Website',
+      key : 'website',
+      isSort : true,
+    },
+    {
+      id : 'phone',
+      name : 'Phone',
+      key : 'phone',
+      isSort : true,
     },
   ];
 
@@ -107,7 +126,7 @@ const getTableElement = (data) => {
 
 
 const getTh = (column) => {
-  console.log(column);
+  // console.log(column);
   const th = document.createElement("th");
   th.innerHTML = column.name;
 
